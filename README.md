@@ -7,6 +7,7 @@
 4. Initialize tailwind.css:
     ```
     npm install -D tailwindcss
+    npm install --legacy-peer-deps -D postcss autoprefixer
     npx tailwindcss init
     ```
 5. Run command : `npm run dev`
