@@ -30,6 +30,11 @@ import tesla from "./company/tesla.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import uhg from "./company/uhg.png"
+import telstra from "./company/telstra.jpeg"
+import telstra1 from "./company/telstra1.png"
+import pega from "./company/pega.jpeg"
+import jnj from "./company/jnj.jpeg"
 
 export {
   logo,
@@ -61,4 +66,9 @@ export {
   carrent,
   jobit,
   tripguide,
+  uhg,
+  telstra,
+  telstra1,
+  pega,
+  jnj
 };
