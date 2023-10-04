@@ -17,12 +17,17 @@ import {
     docker,
     meta,
     starbucks,
+    uhg,
+    telstra,
+    telstra1,
     tesla,
+    pega,
     shopify,
     carrent,
     jobit,
     tripguide,
     threejs,
+    jnj
 } from "../assets";
 
 export const navLinks = [
@@ -42,11 +47,11 @@ export const navLinks = [
 
 const services = [
     {
-        title: "Web Developer",
+        title: "Data Engineer",
         icon: web,
     },
     {
-        title: "React Native Developer",
+        title: "LLM Application Developer",
         icon: mobile,
     },
     {
@@ -54,7 +59,7 @@ const services = [
         icon: backend,
     },
     {
-        title: "Content Creator",
+        title: "Software Consultant",
         icon: creator,
     },
 ];
@@ -116,55 +121,68 @@ const technologies = [
 
 const experiences = [
     {
-        title: "React.js Developer",
-        company_name: "Starbucks",
-        icon: starbucks,
-        iconBg: "#383E56",
-        date: "March 2020 - April 2021",
+        title: "Software Engineer",
+        company_name: "UHG (UnitedHealth Group)",
+        icon: uhg,
+        iconBg: "#fff",
+        date: "May 2019 - Oct 2021",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Developing robust big-data pipelines using Apache Spark, Kafka, Airflow, Spring Boot, Docker, and Kubernetes.",
+            "Creating a high-performance backend application capable of handling up to 100 million transactions per day.",
+            "Collaborating effectively with cross-functional teams, including designers, product managers, quality engineers, and fellow developers, to deliver top-quality products.",
+            "Implementing a comprehensive DevOps pipeline and robust testing strategies.",
+            "Actively participating in code reviews and offering valuable feedback to and from fellow developers.",
+            "Towards the end of my tenure at UHG, I assumed a senior role with increased responsibilities in design and architecture"
         ],
     },
     {
-        title: "React Native Developer",
-        company_name: "Tesla",
-        icon: tesla,
+        title: "Backend Developer",
+        company_name: "Telstra",
+        icon: telstra1,
         iconBg: "#E6DEDD",
-        date: "Jan 2021 - Feb 2022",
+        date: "Nov 2021 - April 2022",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Engaged in a freelancing project to craft 2 microservices for an Order Tracking Application.",
+            "Collaborated closely with a dynamic team, including a product manager, scrum master, and developers based in Australia.",
+            "Implemented a robust Test-Driven Development approach leveraging Java 11, Spring Boot 2, Bamboo CI, and PCF.",
+            "Active involvement in daily Scrum meetings and bi-weekly sessions for backlog refinement and sprint reviews.",
+            "Gained valuable insights into various aspects of the Energy Industry in Australia.",
         ],
     },
     {
-        title: "Web Developer",
-        company_name: "Shopify",
-        icon: shopify,
-        iconBg: "#383E56",
-        date: "Jan 2022 - Jan 2023",
+        title: "Integration Engineer",
+        company_name: "Pega Systems",
+        icon: pega,
+        iconBg: "#FFFFFF",
+        date: "May 2022 - Oct 2022",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Engaged in a contract job focused on enhancing Pega's cutting-edge platform, built on a reactive microservices architecture for the next generation.",
+
+            "Leveraged modern Java, Kotlin, Micronaut, and AWS technologies to optimize and streamline the end-to-end code-to-production workflows.",
+
+            "Worked closely with business and engineering leaders to strategize and execute iterative feature releases.",
+
+            "Addressed and resolved critical bug fixes for the existing product, ensuring its stability and reliability.",
+
+            "Actively participated in knowledge-sharing initiatives such as share-to-learn programs and hackathons, fostering collaboration and innovation.",
         ],
     },
     {
-        title: "Full stack Developer",
-        company_name: "Meta",
-        icon: meta,
-        iconBg: "#E6DEDD",
-        date: "Jan 2023 - Present",
+        title: "Data Consultant",
+        company_name: "JnJ",
+        icon: jnj,
+        iconBg: "#FFFFFF",
+        date: "Nov 2022 - Present",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Played a pivotal role in the migration of a legacy Java Compute-Engine to Azure Databricks, ensuring a seamless transition to a modern data processing platform.",
+
+            "Collaborated closely on the development of an automated pipeline that transforms XML data into Scala code, enabling the generation and execution of Spark Jobs within Databricks.",
+
+            "Utilized the power of the OpenAI API, Databricks, and Python to craft a cutting-edge Healthcare Application, enhancing drug research.",
+
+            "Opted for Langchain as the preferred framework to streamline interactions with language models, facilitating more efficient prompting and extraction.",
+
+            "Carried out work asynchronously, with a focus on minimizing meetings and interruptions, allowing for deep and uninterrupted productivity."
         ],
     },
 ];
