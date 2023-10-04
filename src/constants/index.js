@@ -1,33 +1,30 @@
+import { data } from "autoprefixer";
 import {
     mobile,
     backend,
     creator,
     web,
-    javascript,
-    typescript,
-    html,
-    css,
-    reactjs,
-    redux,
-    tailwind,
-    nodejs,
-    mongodb,
     git,
-    figma,
     docker,
-    meta,
-    starbucks,
     uhg,
-    telstra,
     telstra1,
-    tesla,
     pega,
-    shopify,
     carrent,
     jobit,
     tripguide,
-    threejs,
-    jnj
+    jnj,
+    java,
+    airflow,
+    cassandra,
+    databricks,
+    kafka,
+    kubernetes,
+    langchain,
+    openai,
+    postgresql,
+    python,
+    spark,
+    springBoot
 } from "../assets";
 
 export const navLinks = [
@@ -64,59 +61,64 @@ const services = [
     },
 ];
 
+
 const technologies = [
     {
-        name: "HTML 5",
-        icon: html,
+        name: "Java",
+        icon: java
     },
     {
-        name: "CSS 3",
-        icon: css,
+        name: "Spring Boot",
+        icon: springBoot
     },
     {
-        name: "JavaScript",
-        icon: javascript,
+        name: "Apache Spark",
+        icon: spark,
     },
     {
-        name: "TypeScript",
-        icon: typescript,
+        name: "Apache Kafka",
+        icon: kafka,
     },
     {
-        name: "React JS",
-        icon: reactjs,
+        name: "Databricks",
+        icon: databricks
     },
     {
-        name: "Redux Toolkit",
-        icon: redux,
+        name: "PostgreSQL",
+        icon: postgresql
     },
     {
-        name: "Tailwind CSS",
-        icon: tailwind,
-    },
-    {
-        name: "Node JS",
-        icon: nodejs,
-    },
-    {
-        name: "MongoDB",
-        icon: mongodb,
-    },
-    {
-        name: "Three JS",
-        icon: threejs,
-    },
-    {
-        name: "git",
+        name: "Git",
         icon: git,
     },
     {
-        name: "figma",
-        icon: figma,
+        name: "Docker",
+        icon: docker
     },
     {
-        name: "docker",
-        icon: docker,
+        name: "Python",
+        icon: python
     },
+    {
+        name: "OpenAI",
+        icon: openai
+    },
+    {
+        name: "Langchain",
+        icon: langchain,
+    },
+    {
+        name: "Kubernetes",
+        icon: kubernetes
+    },
+    {
+        name: "Airflow",
+        icon: airflow
+    },
+    {
+        name: "Cassandra",
+        icon: cassandra
+    }
 ];
 
 const experiences = [
@@ -190,26 +192,26 @@ const experiences = [
 const testimonials = [
     {
         testimonial:
-            "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-        name: "Sara Lee",
-        designation: "CFO",
-        company: "Acme Co",
+            "Rarely have I encountered a developer with such a profound grasp of product development and business requirements.",
+        name: "Asia Robinson",
+        designation: "Senior Product Owner",
+        company: "UHC",
         image: "https://randomuser.me/api/portraits/women/4.jpg",
     },
     {
         testimonial:
-            "I've never met a web developer who truly cares about their clients' success like Rick does.",
-        name: "Chris Brown",
-        designation: "COO",
-        company: "DEF Corp",
+            "Remarkable expertise in crafting and fine-tuning data pipelines, and a natural knack for quickly embracing new tech to deliver rock-solid solutions.",
+        name: "Olan Banks",
+        designation: "Data Engineering Manager",
+        company: "Telstra",
         image: "https://randomuser.me/api/portraits/men/5.jpg",
     },
     {
         testimonial:
-            "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
+            "It's uncommon to find team members who are as dedicated and committed to aspects like design, architecture, security, and deployment.",
         name: "Lisa Wang",
-        designation: "CTO",
-        company: "456 Enterprises",
+        designation: "Principal Software Engineer",
+        company: "Pega Systems",
         image: "https://randomuser.me/api/portraits/women/6.jpg",
     },
 ];
