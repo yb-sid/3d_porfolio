@@ -17,10 +17,10 @@ const Ball = ({ icon, position, rotation }) => {
 
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
-      <ambientLight intensity={0.03} />
+      <ambientLight intensity={0.25} />
       <directionalLight position={[10, 5, -5]} />
       <mesh castShadow receiveShadow scale={1} position={position}>
-        <icosahedronGeometry args={[1, 10]} />
+        <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
           color='#fff8eb'
           flatShading
@@ -42,11 +42,8 @@ const BallCanvas = ({ icons }) => {
     <Canvas frameloop='always'
       shadows
       dpr={[1, 1]}
-      camera={{ position: [0, 0, 5], fov: 75 }}
+      camera={{ position: [0, 2, 8], fov: 80 }}
       gl={{ preserveDrawingBuffer: true }}
-      style={{
-        width: "100%"
-      }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls enableZoom={false} />
@@ -55,7 +52,7 @@ const BallCanvas = ({ icons }) => {
             const row = Math.floor(index / 3);
             const col = index % 3;
             return (
-              <Ball key={icon} icon={icon} position={[col * 3 - 4, row * 3 + -2, -9]} />
+              <Ball key={icon} icon={icon} position={[row * 2 - 5, col * 2 - 3, -2]} />
             );
           })}
         </group>

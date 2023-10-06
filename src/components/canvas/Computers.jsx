@@ -1,7 +1,8 @@
-import { Suspense, useEffect, useState } from "react"
+import { Suspense, useEffect, useState, useContext } from "react"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei"
 import CanvasLoader from "../Loader"
+
 
 
 /** find and load different asset */
@@ -51,6 +52,7 @@ const ComputersCanvas = () => {
       mediaQuery.removeEventListener('change', handleMediaQuery) // remove event listener
     }
   }, [])
+
 
   return (
     <Canvas

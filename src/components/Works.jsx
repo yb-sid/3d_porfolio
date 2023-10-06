@@ -4,7 +4,7 @@ import { github } from "../assets"
 import { styles } from "../style"
 import { SectionWrapper } from "../hoc"
 import { projects } from "../constants"
-import { fadeIn, textVariant } from "../utils/motion"
+import { fadeIn, slideIn, textVariant } from "../utils/motion"
 
 const ProjectCard = ({
   index,
@@ -73,17 +73,15 @@ const ProjectCard = ({
 const Works = () => {
   return (
     <>
-      <motion.div
-        variants={textVariant()}
-      >
-        <p className={`${styles.sectionSubText} text-center`}> My Work</p>
+      <motion.div variants={slideIn("left", "spring", 0.2, 1)}>
+        <p className={`${styles.sectionSubText} text-center`}>My work</p>
         <h2 className={`${styles.sectionHeadText} text-center`}>Projects.</h2>
       </motion.div>
 
-      <div className="w-full flex justify-center items-center">
+      <div className='w-full flex text-center'>
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+          className='mt-3 text-secondary text-[17px] max-w-3xl]'
         >
           Following projects showcases my skills and experience through
           real-world examples of my work. Each project is briefly described with
@@ -93,13 +91,13 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className='mt-20 flex flex-wrap gap-7'>
+      <div className='mt-20 justify-center flex flex-wrap gap-7'>
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
       </div>
     </>
-  )
-}
+  );
+};
 
 export default SectionWrapper(Works, "")
