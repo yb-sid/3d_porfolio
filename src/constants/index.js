@@ -129,12 +129,11 @@ const experiences = [
         iconBg: "#fff",
         date: "May 2019 - Oct 2021",
         points: [
-            "Developing robust big-data pipelines using Apache Spark, Kafka, Airflow, Spring Boot, Docker, and Kubernetes.",
-            "Creating a high-performance backend application capable of handling up to 100 million transactions per day.",
-            "Collaborating effectively with cross-functional teams, including designers, product managers, quality engineers, and fellow developers, to deliver top-quality products.",
-            "Implementing a comprehensive DevOps pipeline and robust testing strategies.",
-            "Actively participating in code reviews and offering valuable feedback to and from fellow developers.",
-            "Towards the end of my tenure at UHG, I assumed a senior role with increased responsibilities in design and architecture"
+            "Developed big-data pipelines and streaming apps.",
+            "Collaborated with cross-functional teams to deliver high-quality products.",
+            "Established a robust DevOps pipelines and testing strategies.",
+            "Actively engaged in code reviews, providing valuable feedback.",
+            "Attained in-depth knowledge of US Healthcare and policies."
         ],
     },
     {
@@ -144,11 +143,11 @@ const experiences = [
         iconBg: "#E6DEDD",
         date: "Nov 2021 - April 2022",
         points: [
-            "Engaged in a freelancing project to craft 2 microservices for an Order Tracking Application.",
-            "Collaborated closely with a dynamic team, including a product manager, scrum master, and developers based in Australia.",
-            "Implemented a robust Test-Driven Development approach leveraging Java 11, Spring Boot 2, Bamboo CI, and PCF.",
-            "Active involvement in daily Scrum meetings and bi-weekly sessions for backlog refinement and sprint reviews.",
-            "Gained valuable insights into various aspects of the Energy Industry in Australia.",
+            "Created 2 microservices for an Order Tracking App as a freelancer.",
+            "Worked closely with a dynamic team including a product manager, scrum master, and Australian developers.",
+            "Followed a strong Test-Driven Development approach.",
+            "Participated in daily Scrum meetings and bi-weekly backlog refinement and sprint reviews.",
+            "Gained insights into the Australian Energy Industry."
         ],
     },
     {
@@ -158,15 +157,11 @@ const experiences = [
         iconBg: "#FFFFFF",
         date: "May 2022 - Oct 2022",
         points: [
-            "Engaged in a contract job focused on enhancing Pega's cutting-edge platform, built on a reactive microservices architecture for the next generation.",
+            "Focused on enhancing Pega's cutting-edge platform, built on a reactive microservices architecture.",
 
             "Leveraged modern Java, Kotlin, Micronaut, and AWS technologies to optimize and streamline the end-to-end code-to-production workflows.",
 
             "Worked closely with business and engineering leaders to strategize and execute iterative feature releases.",
-
-            "Addressed and resolved critical bug fixes for the existing product, ensuring its stability and reliability.",
-
-            "Actively participated in knowledge-sharing initiatives such as share-to-learn programs and hackathons, fostering collaboration and innovation.",
         ],
     },
     {
@@ -180,11 +175,7 @@ const experiences = [
 
             "Collaborated closely on the development of an automated pipeline that transforms XML data into Scala code, enabling the generation and execution of Spark Jobs within Databricks.",
 
-            "Utilized the power of the OpenAI API, Databricks, and Python to craft a cutting-edge Healthcare Application, enhancing drug research.",
-
-            "Opted for Langchain as the preferred framework to streamline interactions with language models, facilitating more efficient prompting and extraction.",
-
-            "Carried out work asynchronously, with a focus on minimizing meetings and interruptions, allowing for deep and uninterrupted productivity."
+            "Utilizing the power of the OpenAI API, Databricks, and Python to craft solutions for Canadian HealthCare.",
         ],
     },
 ];
@@ -196,7 +187,7 @@ const testimonials = [
         name: "Asia Robinson",
         designation: "Senior Product Owner",
         company: "UHC",
-        image: "https://randomuser.me/api/portraits/women/4.jpg",
+        image: "https://randomuser.me/api/portraits/women/10.jpg",
     },
     {
         testimonial:
@@ -204,7 +195,7 @@ const testimonials = [
         name: "Olan Banks",
         designation: "Data Engineering Manager",
         company: "Telstra",
-        image: "https://randomuser.me/api/portraits/men/5.jpg",
+        image: "https://randomuser.me/api/portraits/men/14.jpg",
     },
     {
         testimonial:
@@ -212,8 +203,9 @@ const testimonials = [
         name: "Lisa Wang",
         designation: "Principal Software Engineer",
         company: "Pega Systems",
-        image: "https://randomuser.me/api/portraits/women/6.jpg",
+        image: "https://randomuser.me/api/portraits/women/19.jpg",
     },
+
 ];
 
 const projects = [
