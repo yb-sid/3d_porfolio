@@ -37,11 +37,11 @@ const About = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText}`}>Introduction</p>
-        <h2 className={`${styles.sectionHeadText}`}>Overview.</h2>
+        <p className={`${styles.sectionSubText} text-center`}>Introduction</p>
+        <h2 className={`${styles.sectionHeadText} text-center`}>Overview.</h2>
       </motion.div>
       <motion.p variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
+        className='mt-4 text-secondary text-[17px] text-center'
       >
         I am a highly skilled Data Engineer with a diverse background in backend development,
         streaming applications, and the creation of large language model-based applications.
@@ -49,7 +49,7 @@ const About = () => {
         As a quick learner, I am constantly driven to broaden my skill set and expand my areas
         of expertise.
       </motion.p>
-      <div className='mt-20 flex flex-wrap gap-10 '>
+      <div className='mt-20 flex flex-wrap gap-10 justify-center'>
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
