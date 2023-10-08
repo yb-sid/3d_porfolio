@@ -18,7 +18,22 @@
 - Docker file included uses `nginx` to serve production buid.
 - Run `docker build -t <image-name> .` in directory to build the image.
 - Run `docker run -p <port_number> : 80 <image-name>` to start UI on `<port-number>`.
+*Note* : No CVEs as per docker scout scans until 8/10/2023.
+
+### CICD setup:
+
+- Use Azure Pipelines to build and deploy to AKS.
+Note :: hosted parallelism for Azure Devops needs to be activated via form.
+
+- *Alternative* : Use Github Actions build and push docker image.
+    1. Create an `Azure Container Registry` either using CLI / portal.
+    2. Enable Admin for your container registry and setup secrets for your github project.
+       Goto : `<repository>/settings/secrets and variables/Actions`.  
+       Define Repoistory Secrets.
+    3. Create .github/workflows/main.yml file as per requirement.
 
 ### Deployment setup to Kubernetes
+
+
 
 
