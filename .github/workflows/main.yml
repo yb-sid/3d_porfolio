@@ -1,9 +1,6 @@
-name: Build and push Docker image to ACR
+name: Build and push image
 
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 
 env:
   IMAGE_NAME: 3d-portfolio
