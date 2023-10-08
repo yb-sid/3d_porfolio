@@ -1,16 +1,12 @@
 name: Deploy to AKS
 
-on:
-  workflow_run:
-    workflows: ["Build and push image"]
-    types:
-      - completed
+on: workflow_dispatch
 
 env:
   IMAGE_NAME: 3d-portfolio
   TAG_NAME: v0.0.1
   REGISTRY: ${{ secrets.ACR_LOGIN_SERVER }}
-  CLUSTER: deploy_test
+  CLUSTER_NAME: deploy_test
   NAMESPACE: deploy-test
   RESOURCE_GROUP: aks_res_group
 
@@ -38,7 +34,7 @@ jobs:
         uses: azure/aks-set-context@v1
         with:
           resource-group: ${{ env.RESOURCE_GROUP }}
-          cluster-name: ${{ env.CLUSTER }}
+          cluster-name: ${{ env.CLUSTER_NAME }}
           creds: ${{secrets.AZURE_LOGIN_CRED}}
 
       - name: Deploy to AKS namespace
