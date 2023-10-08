@@ -26,7 +26,6 @@ jobs:
           login-server: ${{ secrets.ACR_REGISTRY_NAME }}
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
-
       - name: Build and push
         run: |
           docker build -t ${{ secrets.ACR_REGISTRY_NAME }}/${{env.IMAGE_NAME}}:${{ steps.tag.outputs.tag }} .
