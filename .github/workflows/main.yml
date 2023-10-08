@@ -5,6 +5,10 @@ on: workflow_dispatch
 env:
   IMAGE_NAME: 3d-portfolio
   TAG_NAME: v0.0.1
+  REGISTRY: ${{ secrets.ACR_LOGIN_SERVER }}
+  CLUSTER_NAME: deploy_test
+  NAMESPACE: deploy-test
+  RESOURCE_GROUP: aks_res_group
 
 jobs:
   build-and-push:
@@ -25,3 +29,20 @@ jobs:
         run: |
           docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/${{env.IMAGE_NAME}}:${{ env.TAG_NAME }} .
           docker push ${{ secrets.ACR_LOGIN_SERVER }}/${{env.IMAGE_NAME}}:${{env.TAG_NAME}}
+
+      - name: Set context to AKS cluster
+        uses: azure/aks-set-context@v1
+        with:
+          creds: ${{ secrets.AZURE_LOGIN_CRED }}
+          resource-group: ${{ env.RESOURCE_GROUP }}
+          cluster-name: ${{ env.CLUSTER_NAME }}
+
+      - name: Deploy to AKS
+        uses: azure/k8s-deploy@v1
+        with:
+          action: deploy
+          manifests: |
+            manifests/deployment.yml
+          images: |
+            ${{ secrets.ACR_LOGIN_SERVER }}.azurecr.io/${{env.IMAGE_NAME}}:${{env.TAG_NAME}}
+          namespace: ${{env.NAMESPACE}}
