@@ -1,5 +1,5 @@
 # Use Node 16 Alpine as base image
-FROM node:20-alpine
+FROM node:20-alpine as base
 
 # Set working directory 
 WORKDIR /app
@@ -19,8 +19,8 @@ RUN npm run build
 # Use an official Nginx runtime as the base image
 FROM nginx:mainline-alpine3.18-slim
 
-# Copy the `dist` directory from build to nginx
-COPY dist /usr/share/nginx/html
+# Copy the built files from the previous stage into Nginx
+COPY --from=base /app/dist /usr/share/nginx/html
 
 # Expose port 80 to the outside world
 EXPOSE 80
