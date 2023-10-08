@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: 3dportfolio 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: 3dportfolio
+  template:
+    metadata:
+      labels:
+        app: 3dportfolio 
+    spec:
+      containers:
+        - name: 3dportfolio 
+          image: ybsid.azurecr.io/3dportfolio
+          ports:
+          - containerPort: 3000
