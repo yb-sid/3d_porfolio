@@ -38,4 +38,4 @@ jobs:
           creds: ${{secrets.AZURE_LOGIN_CRED}}
 
       - name: Deploy to AKS namespace
-        run: kubectl apply -n ${{ env.NAMESPACE }} --env "IMAGE_NAME:${{env.IMAGE_NAME}}" --env "REGISTRY_URL=${{env.REGISTRY}}" --env "TAG_NAME:${{env.TAG_NAME}}" -f /manifests/deployment.yml
+        run: kubectl apply -n ${{ env.NAMESPACE }} -f /manifests/deployment.yml
