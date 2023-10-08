@@ -1,0 +1,29 @@
+name: Deploy to AKS
+
+on:
+  workflow_run:
+    workflows: ["Build and push image"]
+    types:
+      - completed
+
+env:
+  IMAGE_NAME: 3d-portfolio
+  TAG_NAME: v0.0.1
+  REGISTRY: ${{ secrets.ACR_LOGIN_SERVER }}
+  CLUSTER: deploy_test
+  NAMESPACE: deploy-test
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set AKS context
+        uses: azure/aks-set-context@v3
+        with:
+          creds: ${{ secrets.AZURE_LOGIN_CRED }}
+          cluster-name: ${{ env.CLUSTER }}
+
+      - name: Deploy to AKS namespace
+        run: kubectl apply -n ${{ env.NAMESPACE }} -f /manifests/deployment.yml
