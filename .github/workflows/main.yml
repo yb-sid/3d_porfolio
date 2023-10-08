@@ -7,6 +7,7 @@ on:
 
 env:
   IMAGE_NAME: 3d-portfolio
+  TAG_NAME: v0.0.1
 
 jobs:
   build-and-push:
@@ -15,9 +16,6 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v3
-      - name: Get tag
-        id: tag
-        uses: dawidd6/action-get-tag@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to ACR
@@ -28,5 +26,5 @@ jobs:
           password: ${{ secrets.ACR_PASSWORD }}
       - name: Build and push
         run: |
-          docker build -t ${{ secrets.ACR_REGISTRY_NAME }}/${{env.IMAGE_NAME}}:${{ steps.tag.outputs.tag }} .
-          docker push ${{ secrets.ACR_REGISTRY_NAME }}/${{env.IMAGE_NAME}}:${{steps.tag.outputs.tag}}
+          docker build -t ${{ secrets.ACR_REGISTRY_NAME }}/${{env.IMAGE_NAME}}:${{ env.TAG_NAME }} .
+          docker push ${{ secrets.ACR_REGISTRY_NAME }}/${{env.IMAGE_NAME}}:${{env.TAG_NAME}}
