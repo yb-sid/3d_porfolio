@@ -44,5 +44,5 @@ jobs:
           manifests: |
             manifests/deployment.yml
           images: |
-            ${{ secrets.ACR_LOGIN_SERVER }}.azurecr.io/${{env.IMAGE_NAME}}:${{env.TAG_NAME}}
+            ${{ secrets.ACR_LOGIN_SERVER }}/${{env.IMAGE_NAME}}:${{env.TAG_NAME}}
           namespace: ${{env.NAMESPACE}}
