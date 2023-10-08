@@ -24,6 +24,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_LOGIN_CRED }}
           cluster-name: ${{ env.CLUSTER }}
+          resource-group: aks-res-group
 
       - name: Deploy to AKS namespace
         run: kubectl apply -n ${{ env.NAMESPACE }} --env IMAGE_NAME:${{env.IMAGE_NAME}} --env REGISTRY_URL=${{env.REGISTRY}} --env TAG_NAME:${{env.TAG_NAME}} -f /manifests/deployment.yml
