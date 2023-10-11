@@ -43,6 +43,7 @@ jobs:
           action: deploy
           manifests: |
             manifests/deployment.yml
+            manifests/service.yml
           images: |
             ${{ secrets.ACR_LOGIN_SERVER }}/${{env.IMAGE_NAME}}:${{env.TAG_NAME}}
           namespace: ${{env.NAMESPACE}}
