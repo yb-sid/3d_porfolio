@@ -16,4 +16,4 @@ spec:
         - name: 3d-portfolio
           image: ybsid.azurecr.io/3d-portfolio:v0.0.1
           ports:
-            - containerPort: 3000
+            - containerPort: 80
