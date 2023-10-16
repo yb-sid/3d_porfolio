@@ -1,0 +1,43 @@
+# Add the official Helm repository for the Nginx Ingress Controller
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
+# Install the Nginx Ingress Controller
+helm install my-ingress-controller ingress-nginx/ingress-nginx -n <namespace>
+
+
+# Add the official Helm repository for the Nginx Ingress Controller
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
+# Install the Nginx Ingress Controller
+helm install my-ingress-controller ingress-nginx/ingress-nginx -n <namespace>
+
+helm uninstall my-nginx-controller -n <namespace>
+-------
+helm repo add traefik https://helm.traefik.io/traefik
+helm install traefik traefik/traefik -n deploy-test
+helm uninstall traefik
+----------
+kubectl get ingressclass --all-namespaces
+kubectl delete ingressclass nginx
+---------
+Azure example : 
+-----------
+NAMESPACE=deploy-test
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+
+helm install ingress-nginx ingress-nginx/ingress-nginx \
+  --namespace $NAMESPACE \
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
+
+helm uninstall ingress-nginx -n deploy-test
+-----------
+pending from deleted nginx 
+
+kubectl get validatingwebhookconfigurations
+kubectl get mutatingwebhookconfigurations
+
+kubectl delete validatingwebhookconfiguration <webhook-config-name>
+kubectl delete mutatingwebhookconfiguration <webhook-config-name>
+
+--------------
