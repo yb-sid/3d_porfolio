@@ -54,7 +54,7 @@ Note :: hosted parallelism for Azure Devops needs to be activated via form.
 
  ---
 
- ## Workflow for deploying with ingress controller and TLS certificates with domain mapping
+ ## Workflows to expose K8s services to internet.
 
  ### Workflow 1: expose via Service.
 
@@ -66,6 +66,16 @@ Note :: hosted parallelism for Azure Devops needs to be activated via form.
 
  ### Workflow 2: expose via ingress-controller :: use http
 
+- Install `traefik` https://doc.traefik.io/traefik/getting-started/install-traefik/#use-the-helm-chart 
+```
+helm repo add traefik https://traefik.github.io/charts
+helm repo update
+helm install --namespace=<namespace> traefik traefik/traefik
+```
+
+- run `kubectl apply -f ingress.yml -n <namespace>` to deploy and test Ui with traefik ingress-controller.
+
+*Result* : passing
 
 
 
