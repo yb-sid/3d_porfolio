@@ -41,3 +41,32 @@ kubectl delete validatingwebhookconfiguration <webhook-config-name>
 kubectl delete mutatingwebhookconfiguration <webhook-config-name>
 
 --------------
+
+before installing cert-manager
+delete rolebindings , clusterrolebindings(default) , roles and rolebindings(kube-system) related to previous-cert manage if any
+
+helm install cert-manager jetstack/cert-manager --namespace new-test --version v1.13.1 --set installCRDs=true
+
+
+kubectl apply -f issuer.yml -n <namespace>
+
+kubectl apply -f certificate.yml -n <namespace>
+
+** after applying certificate , it fails to create TLS secret .
+Run ::kubectl logs -n new-test -l app=cert-manager 
+
+E1016 18:55:21.735439       1 sync.go:190] "cert-manager/challenges: propagation check failed" err="failed to perform self check GET request 'http://www.ybsid.com/.well-known/acme-challenge/Ff-5ee8GU-SLlV0mX-CgsNXfYlIu6uRRv8AtIXtf91E': Get \"http://www.ybsid.com/.well-known/acme-challenge/Ff-5ee8GU-SLlV0mX-CgsNXfYlIu6uRRv8AtIXtf91E\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)" resource_name="ybsid-certificate-1-2050770368-1940669410" resource_namespace="new-test" resource_kind="Challenge" resource_version="v1" dnsName="www.ybsid.com" type="HTTP-01
+
+log means unable to hit and get response from domain , need to point externalIP 
+
+
+
+                               
+
+
+
+
+
+
+
+   

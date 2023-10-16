@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ybsid-certificate
+  namespace: new-test
+spec:
+  secretName: ybsid-tls-secret
+  duration: 2160h
+  renewBefore: 360h
+  issuerRef:
+    name: letsencrypt-prod
+    kind: Issuer
+  commonName: ybsid.com
+  dnsNames:
+    - ybsid.com
+    - www.ybsid.com
