@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: 3d-portfolio
-  namespace: deploy-test
+  name: portfolio
+  namespace: new-test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: 3d-portfolio
+      app: portfolio
   template:
     metadata:
       labels:
-        app: 3d-portfolio
+        app: portfolio
     spec:
       containers:
-        - name: 3d-portfolio
+        - name: portfolio
           image: ybsid.azurecr.io/3d-portfolio:v0.0.1
           ports:
             - containerPort: 80

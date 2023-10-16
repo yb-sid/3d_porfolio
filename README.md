@@ -15,12 +15,12 @@
 ### Docker setup.
 
 - Install docker via offical website : `https://www.docker.com/get-started/`
-- Docker file included uses `nginx` to serve production buid.
+- Dockerfile uses `nginx` to serve production buid.
 - Run `docker build -t <image-name> .` in directory to build the image.
 - Run `docker run -p <port_number> : 80 <image-name>` to start UI on `<port-number>`.
 *Note* : 
     - No CVEs as per docker scout scans until 8/10/2023.
-    - 2 stages : one to perform build and another to serve via nginx
+    - 2 stages : npm build + serve via nginx
 
 ### CICD setup:
 
@@ -36,18 +36,36 @@ Note :: hosted parallelism for Azure Devops needs to be activated via form.
 
 ### Deployment setup to Kubernetes
 
-1. Azure Devops
- - Run `azure-pipelines.yml` via Azure devops portal.
- - Verify container within AKS instance.
-
-2. Github Action
  - Prerequisites:
     ** Integrate Github actions to Azure: https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Clinux
 
     - Run command `az ad sp create-for-rbac --name "login-service-principal" --role contributor --scopes /subscriptions/{subscription_id}/resourceGroups/{resource_group_name_of_AKS} --json-auth` on azure CLI or cloud shell.
     - Extract output JSON and set it as a secret named : `AZURE_LOGIN_CREDS` in github settings.
- - aks_deploy.yml is triggered after main.yml pushes docker image to ACR.
- - 
+    - Connect your AKS to ACR : `az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>`
+
+
+1. Azure Devops
+ - Run `azure-pipelines.yml` via Azure devops portal.
+ - Verify container within AKS instance.
+
+2. Github Action    
+ - aks_deploy.yml is can be triggered via workflows tab in Github .
+ - manifests/deployment.yml and manifests/service.yml are k8s spec files.
+
+ ---
+
+ ## Workflow for deploying with ingress controller and TLS certificates with domain mapping
+
+ ### Workflow 1: expose via Service.
+
+ - Use ```kubectl apply -f deployment.yml -n <namespace>``` to deploy UI
+ - Use ```kubectl apply -f service.yml -n <namespace>``` deploy service 
+ - Note :: service type = LoadBalancer to test UI with http external IP address
+
+ *Result* : Passed 
+
+ ### Workflow 2: expose via ingress-controller :: use http
+
 
 
 
