@@ -54,28 +54,18 @@ Note :: hosted parallelism for Azure Devops needs to be activated via form.
 
  ---
 
- ## Workflows to expose K8s services to internet.
-
- ### Workflow 1: expose via Service.
+ ## Workflow to expose K8s services to internet.
 
  - Use ```kubectl apply -f deployment.yml -n <namespace>``` to deploy UI
  - Use ```kubectl apply -f service.yml -n <namespace>``` deploy service 
- - Note :: service type = LoadBalancer to test UI with http external IP address
-
- *Result* : Passed 
-
- ### Workflow 2: expose via ingress-controller :: use http
-
-- Install `traefik` https://doc.traefik.io/traefik/getting-started/install-traefik/#use-the-helm-chart 
-```
-helm repo add traefik https://traefik.github.io/charts
-helm repo update
-helm install --namespace=<namespace> traefik traefik/traefik
-```
-
-- run `kubectl apply -f ingress.yml -n <namespace>` to deploy and test Ui with traefik ingress-controller.
-
-*Result* : passing
+ - Install `ingress-controller` 
+ - Update the DNS's A record to map to ingress-controller's external IP address.
+ - Apply Ingress resource.
+ - Check out `http` based insecure website , verify it's accessible.
+ - Install `cert-manager` using helm. (https://cert-manager.io/docs/)
+ - Apply `issuer.yml` and `certificate.yml`.
+ - Update the `tls` section of ingress.yml and re-apply.
+ - Test secure https website.
 
 
 
