@@ -1,72 +1,63 @@
-# Add the official Helm repository for the Nginx Ingress Controller
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+--------------
+create and push docker image: 
+---------------
+docker buildx build --platform linux/amd64 -t ${image_name}:${tag} . # platform required for M1/M2
+docker tag ${image_name}:${tag} ${container_registry}/${image_name}:${tag}
+docker push ${container_registry}/${image_name}:${tag}
+===============
+# create public IP resource 
+-----------------
+az aks show --resource-group <aks res group name> --name <cluster name> --query nodeResourceGroup -o tsv
 
-# Install the Nginx Ingress Controller
-helm install my-ingress-controller ingress-nginx/ingress-nginx -n <namespace>
+
+az network public-ip create --resource-group <output of prev command> --name <name of ip res> --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 
 
-# Add the official Helm repository for the Nginx Ingress Controller
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-
-# Install the Nginx Ingress Controller
-helm install my-ingress-controller ingress-nginx/ingress-nginx -n <namespace>
-
-helm uninstall my-nginx-controller -n <namespace>
--------
-helm repo add traefik https://helm.traefik.io/traefik
-helm install traefik traefik/traefik -n deploy-test
-helm uninstall traefik
-----------
-kubectl get ingressclass --all-namespaces
-kubectl delete ingressclass nginx
----------
-Azure example : 
------------
-NAMESPACE=deploy-test
+az network public-ip list --output table
+==================
+Create ingress-Controller
+=====================
+# Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 
+# Set variable for ACR location to use for pulling images
+ACR_URL=ybsid.azurecr.io
+# Use Helm to deploy an NGINX ingress controller
+
+
 helm install ingress-nginx ingress-nginx/ingress-nginx \
-  --namespace $NAMESPACE \
-  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
+    --namespace deploy-demo \
+    --set controller.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true \
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz \
 
-helm uninstall ingress-nginx -n deploy-test
------------
-pending from deleted nginx 
+------------------
+update ingress with static IP 
+------------------
+DNS_LABEL="<dns-label-name>"
+NAMESPACE="deploy-demo"
+STATIC_IP=<static IP>
 
-kubectl get validatingwebhookconfigurations
-kubectl get mutatingwebhookconfigurations
+helm upgrade ingress-nginx ingress-nginx/ingress-nginx --namespace $NAMESPACE --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL --set controller.service.loadBalancerIP=$STATIC_IP --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
+==========================
+deploy cert manager
+-------------------------
+kubectl label namespace deploy-dev cert-manager.io/disable-validation=true
 
-kubectl delete validatingwebhookconfiguration <webhook-config-name>
-kubectl delete mutatingwebhookconfiguration <webhook-config-name>
+# Add the Jetstack Helm repository
+helm repo add jetstack https://charts.jetstack.io
 
---------------
+# Update your local Helm chart repository cache
+helm repo update
 
-before installing cert-manager
-delete rolebindings , clusterrolebindings(default) , roles and rolebindings(kube-system) related to previous-cert manage if any
-
-helm install cert-manager jetstack/cert-manager --namespace new-test --version v1.13.1 --set installCRDs=true
-
-
-kubectl apply -f issuer.yml -n <namespace>
-
-kubectl apply -f certificate.yml -n <namespace>
-
-** after applying certificate , it fails to create TLS secret .
-Run ::kubectl logs -n new-test -l app=cert-manager 
-
-E1016 18:55:21.735439       1 sync.go:190] "cert-manager/challenges: propagation check failed" err="failed to perform self check GET request 'http://www.ybsid.com/.well-known/acme-challenge/Ff-5ee8GU-SLlV0mX-CgsNXfYlIu6uRRv8AtIXtf91E': Get \"http://www.ybsid.com/.well-known/acme-challenge/Ff-5ee8GU-SLlV0mX-CgsNXfYlIu6uRRv8AtIXtf91E\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)" resource_name="ybsid-certificate-1-2050770368-1940669410" resource_namespace="new-test" resource_kind="Challenge" resource_version="v1" dnsName="www.ybsid.com" type="HTTP-01
-
-log means unable to hit and get response from domain , need to point externalIP 
-
-
-
-                               
-
-
-
-
-
-
-
-   
+helm install \
+  cert-manager jetstack/cert-manager \
+  --namespace deploy-demo \
+  --version v1.13.1 \
+  --set installCRDs=true
+================
+apply issuer 
+apply certificate 
+update ingress with secret
