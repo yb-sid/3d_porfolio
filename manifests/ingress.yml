@@ -1,14 +1,14 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: traefik-ingress
+  name: nginx-ingress
   annotations:
-    kubernetes.io/ingress.class: "traefik"
-    traefik.ingress.kubernetes.io/rewrite-target: /
-    traefik.ingress.kubernetes.io/rule-type: PathPrefix
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rule-type: PathPrefix
 spec:
   rules:
-    - host:
+    - host: <domain>
       http:
         paths:
           - path: /
@@ -18,3 +18,18 @@ spec:
                 name: portfolio-service
                 port:
                   number: 80
+    - host: <www.domain>
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: portfolio-service
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - <domain>
+        - www.domain
+      secretName: tls-secret

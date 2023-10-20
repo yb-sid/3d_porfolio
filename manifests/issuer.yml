@@ -1,15 +1,19 @@
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: letsencrypt-prod
-  namespace: new-test
+  name: letsencrypt
+  namespace: deploy-demo
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: ybsid@contact.com # Update with your email address
+    email: <email>
     privateKeySecretRef:
-      name: letsencrypt-prod
+      name: letsencrypt
     solvers:
       - http01:
           ingress:
-            class: traefik
+            class: nginx
+            podTemplate:
+              spec:
+                nodeSelector:
+                  "kubernetes.io/os": linux

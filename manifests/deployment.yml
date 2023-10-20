@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: portfolio
-  namespace: new-test
+  namespace: deploy-demo
 spec:
   replicas: 1
   selector:
@@ -15,6 +15,13 @@ spec:
     spec:
       containers:
         - name: portfolio
-          image: ybsid.azurecr.io/3d-portfolio:v0.0.1
+          image: <container_registry>/<image:tag>
           ports:
             - containerPort: 80
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
