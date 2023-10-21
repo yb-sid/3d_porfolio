@@ -64,7 +64,7 @@ const Experience = () => {
     <>
       <div>
         <p className={`${styles.sectionSubText} text-center`}>
-          What I have done so far
+          Where have I worked before ?
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
           Work Experience.
