@@ -182,8 +182,7 @@ const experiences = [
 
 const testimonials = [
     {
-        testimonial:
-            "Rarely have I encountered a developer with such a profound grasp of product development and business requirements.",
+        testimonial: "Rarely have I encountered a developer with such a profound grasp of product development and business requirements.",
         name: "Asia Robinson",
         designation: "Senior Product Owner",
         company: "UHC",
@@ -210,64 +209,93 @@ const testimonials = [
 
 const projects = [
     {
-        name: "Car Rent",
+        name: "Data Validator",
         description:
-            "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+            "A Spark data processing job, configurable to ingest data from distinct sources, facilitates the validation of individual rows for data integrity concerns, and subsequently generates CSV or Parquet reports that are stored in an object storage repository.",
         tags: [
             {
-                name: "react",
+                name: "apache-spark",
                 color: "blue-text-gradient",
             },
             {
-                name: "mongodb",
+                name: "postgresql",
                 color: "green-text-gradient",
             },
             {
-                name: "tailwind",
+                name: "ibm-db2",
                 color: "pink-text-gradient",
             },
         ],
         image: carrent,
-        source_code_link: "https://github.com/",
+        source_code_link: "https://github.com/", // change link after project blog creation
     },
     {
-        name: "Job IT",
+        name: "DAG Consumer",
         description:
-            "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+            "A Kafka Streams consumer, meticulously engineered to ingest data from a topic, dynamically composes an Apache Airflow Directed Acyclic Graph (DAG) file. Upon creation, it utilizes the GitHub API to upload these files to a repository, and a Jenkins pipeline is employed to deploy them into the Airflow environment.",
         tags: [
             {
-                name: "react",
+                name: "Spring-boot",
                 color: "blue-text-gradient",
             },
             {
-                name: "restapi",
+                name: "Kafka-Streams",
                 color: "green-text-gradient",
             },
             {
-                name: "scss",
+                name: "GitHub-API",
                 color: "pink-text-gradient",
             },
+            {
+                name: "Apache-Airflow",
+                color: "orange-text-gradient"
+            }
         ],
         image: jobit,
         source_code_link: "https://github.com/",
     },
     {
-        name: "Trip Guide",
+        name: "Magick-Converter",
         description:
-            "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+            "An advanced micro-fullstack application, thoughtfully architected to harness the power of ImageMagick's command-line interface, Docker, and Kubernetes. This project excels inconverting complex EPS (Encapsulated Postscript) files into PNG format, and simultaneously rendering the converted image using ReactJS.",
         tags: [
             {
-                name: "nextjs",
+                name: "ReactJs",
                 color: "blue-text-gradient",
             },
             {
-                name: "supabase",
+                name: "Docker",
                 color: "green-text-gradient",
             },
             {
-                name: "css",
+                name: "Kubernetes",
                 color: "pink-text-gradient",
             },
+            {
+                name: "Spring-Boot",
+                color: "orange-text-gradient"
+            }
+        ],
+        image: tripguide,
+        source_code_link: "https://github.com/",
+    },
+    {
+        name: "CE Migration",
+        description:
+            "This project achieved a seamless migration from a legacy Java Compute Engine to Azure Databricks, incorporating advanced techniques like broadcast joins to replicate existing data logic. This transition reduced server costs by approximately 70%, enhancing operational efficiency.",
+        tags: [
+            {
+                name: "Databricks",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "Scala",
+                color: "green-text-gradient",
+            },
+            {
+                name: "Spark",
+                color: "orange-text-gradient"
+            }
         ],
         image: tripguide,
         source_code_link: "https://github.com/",
