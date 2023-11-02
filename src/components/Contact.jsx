@@ -6,6 +6,8 @@ import { styles } from "../style";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+import { emailService } from "../constants";
+
 
 const Contact = () => {
   const formRef = useRef();
@@ -29,20 +31,36 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validation checks
+    if (!form.name.trim()) {
+      alert("Name cannot be empty.");
+      return;
+    }
+
+    if (!/^\S+@\S+\.\S+$/.test(form.email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    if (!form.message.trim()) {
+      alert("Message cannot be empty.");
+      return;
+    }
     setLoading(true);
 
     emailjs
       .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        emailService.serviceId,
+        emailService.templateId,
         {
           from_name: form.name,
-          to_name: "JavaScript Mastery",
+          to_name: "Sid",
           from_email: form.email,
-          to_email: "ybsidstar@gmail.com",
+          to_email: "reach@ybsid.com",
           message: form.message,
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        emailService.publicKey
       )
       .then(
         () => {
@@ -59,7 +77,6 @@ const Contact = () => {
           console.log("error sections")
           setLoading(false);
           console.error(error);
-
           alert("Ahh, something went wrong. Please try again.");
         }
       );
