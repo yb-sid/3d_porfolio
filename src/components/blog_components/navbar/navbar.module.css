@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+
+.logo {
+    flex: 2;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 1280px) {
+    .logo {
+        font-size: 30px;
+    }
+
+    .links {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .logo {
+        font-size: 25px;
+        text-align: left;
+    }
+
+    .links {
+        font-size: 14px;
+    }
+}
+
+
+
+@media screen and (max-width: 480px) {
+    .logo {
+        font-size: 18px;
+        text-align: left;
+    }
+
+    .links {
+        font-size: 12px;
+    }
+}
