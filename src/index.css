@@ -13,11 +13,65 @@
   color-scheme: dark;
 }
 
+
 .hash-span {
   margin-top: -100px;
   padding-bottom: 100px;
   display: block;
 }
+
+.container {
+  max-width: 1536px;
+}
+
+.wrapper {
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+
+@media screen and (max-width:1536px) {
+  .wrapper {
+    max-width: 1366px;
+  }
+}
+
+@media screen and (max-width:1366px) {
+  .wrapper {
+    max-width: 1024px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .wrapper {
+    max-width: 768px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .wrapper {
+    max-width: 640px;
+  }
+}
+
+@media screen and (max-width:640px) {
+  .wrapper {
+    max-width: 475px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .wrapper {
+    max-width: 475px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
 
 .black-gradient {
   background: #000000;
