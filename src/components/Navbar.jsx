@@ -27,13 +27,19 @@ const Navbar = () => {
         </Link>
         <ul className='list-none hidden sm:flex flex-row gap-10'>
           {navLinks.map((link) => (
-            <li key={link.id} className={`${active === link.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
+            <li
+              key={link.id}
+              className={`${active === link.title ? "text-white" : "text-secondary"
+                } hover:text-white text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(link.title)}
             >
               <a href={`#${link.id}`}>{link.title}</a>
             </li>
           ))}
+          {/*new link for "Blogs" */}
+          <li className={`text-secondary hover:text-white text-[18px] font-medium cursor-pointer`}>
+            <Link to="/blogs">Blogs</Link>
+          </li>
         </ul>
         {/** mobile navigation bar :: check in mobile*/}
         <div className='sm:hidden flex flex-1 justify-end items-center'>
@@ -57,6 +63,9 @@ const Navbar = () => {
                   <a href={`#${link.id}`}>{link.title}</a>
                 </li>
               ))}
+              <li className={`text-secondary hover:text-white text-[18px] font-medium cursor-pointer`}>
+                <Link to="/blogs">Blogs</Link>
+              </li>
             </ul>
           </div>
         </div>
