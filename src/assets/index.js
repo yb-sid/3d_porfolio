@@ -43,11 +43,7 @@ import python from "./tech/python.png"
 import spark from "./tech/spark.png"
 import springBoot from "./tech/spring_boot.png"
 
-import sun from "./blog/sun.png"
-import moon from "./blog/moon.png"
-
-import p1 from "./blog/p1.jpeg"
-
+import human_mind from "./blog/blog_feature.png"
 export {
   logo,
   logo_lr,
@@ -87,7 +83,5 @@ export {
   python,
   spark,
   springBoot,
-  sun,
-  moon,
-  p1
+  human_mind,
 };
