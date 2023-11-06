@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './featured.module.css'
-import { p1 } from "../../../assets";
+import { human_mind } from "../../../assets";
 const Featured = () => {
     return (
         <div className={styles.container}>
@@ -9,15 +9,23 @@ const Featured = () => {
             </h1>
             <div className={styles.post}>
                 <div className={styles.imgContainer}>
-                    <img src={p1} alt="featured image" className={styles.image} />
+                    <img src={human_mind} alt="featured image" className={styles.image} />
                 </div>
                 <div className={styles.textContainer}>
-                    <h1 className={styles.postTitle}>Lorem ipsum dolor sit amet alim consectetur adipisicing elit.</h1>
+                    <h1 className={styles.postTitle}></h1>
                     <p className={styles.postDesc}>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                        Cupiditate, quam nisi magni ea laborum inventore voluptatum
-                        laudantium repellat ducimus unde aspernatur fuga. Quo, accusantium
-                        quisquam! Harum unde sit culpa debitis.
+                        The human mind is a remarkable and complex organ,
+                        setting us apart from all other life forms on Earth.
+                        With its intricate web of neurons,
+                        it's the epicenter of our thoughts, emotions,
+                        and consciousness, capable of incredible feats of creativity,
+                        problem-solving, and self-awareness.
+                        It's a marvel of evolution, a finely tuned instrument that
+                        has allowed us to thrive and adapt in a constantly changing world.
+                    </p>
+                    <p className={styles.postDesc2}>
+                        In this blog, I embark on a personal journey of exploration,
+                        delving into various topics inspired by my own experiences.
                     </p>
                 </div>
             </div>
