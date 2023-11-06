@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from './categorylist.module.css'
 import { Link } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
@@ -17,15 +17,16 @@ query NewQuery {
 
 const CategoryList = () => {
 
-    const { loading, error, data, refetch } = useQuery(CAT_QUERY)
+    const { loading, error, data } = useQuery(CAT_QUERY)
+
+    const [categories, setCategories] = useState([])
     useEffect(() => {
-        refetch(); // This will trigger the query on component mount
-    }, [refetch]);
+        if (!loading) {
+            setCategories(data.categories.nodes)
+        }
+    });
 
-    if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
-
-    const categories = data.categories.nodes;
 
     return (
         <div className={styles.container}>
@@ -34,9 +35,10 @@ const CategoryList = () => {
                 {
                     categories?.map((item) => (
                         <Link
-                            to={`/blogs?cat=${item.slug}`}
+                            to={`/blogs/${item.slug}`}
                             className={`${styles.category} ${styles.inner}`}
                             key={item.databaseId}
+                            onClick={() => scroll(0, 0)}
                         >
                             {item.name}
                         </Link>
