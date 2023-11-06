@@ -4,7 +4,6 @@ import Featured from './featured/Featured';
 import CategoryList from './categoryList/CategoryList';
 import CardList from './cardList/CardList';
 import Menu from './menu/Menu'
-import Pagination from './pagination/Pagination';
 
 export {
     BlogNavbar,
@@ -13,5 +12,4 @@ export {
     CategoryList,
     CardList,
     Menu,
-    Pagination
 }
