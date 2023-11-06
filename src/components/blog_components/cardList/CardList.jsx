@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styles from './cardlist.module.css'
-import Pagination from "../pagination/Pagination";
 import Card from "../card/Card";
 
 import { gql, useQuery } from "@apollo/client"
@@ -10,8 +9,9 @@ const POST_QUERY = gql`
     $first: Int
     $last: Int
     $after: String
-    $before: String) {
-    posts(first: $first, last: $last, after: $after, before: $before) {
+    $before: String
+    $catName: String) {
+    posts(first: $first, last: $last, after: $after, before: $before,where: { categoryName: $catName }) {
       nodes {
         featuredImage {
           node {
@@ -58,12 +58,13 @@ const updateQuery = (previousResult, { fetchMoreResult }) => {
   return fetchMoreResult.posts.nodes.length ? fetchMoreResult : previousResult;
 };
 
-const CardList = ({ page, onPageChange }) => {
+const CardList = ({ categoryName }) => {
   const variables = {
     first: POST_PER_PAGE,
     last: null,
     after: null,
-    before: null
+    before: null,
+    catName: categoryName
   };
 
   const { loading, error, data, fetchMore } = useQuery(POST_QUERY, { variables });
@@ -91,7 +92,7 @@ const CardList = ({ page, onPageChange }) => {
       <h1 className={styles.title}>Recent Posts</h1>
       <div className={styles.posts}>
         {items?.map((item) => (
-          <Card item={item} key={item.id} />
+          <Card item={item} key={item.id} id={item.id} />
         ))}
       </div>
       {/* pagination section */}
