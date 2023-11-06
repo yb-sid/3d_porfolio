@@ -38,7 +38,7 @@ const Navbar = () => {
           ))}
           {/*new link for "Blogs" */}
           <li className={`text-secondary hover:text-white text-[18px] font-medium cursor-pointer`}>
-            <Link to="/blogs">Blogs</Link>
+            <Link to="/blogs" onClick={() => scroll(0, 0)}>Blogs</Link>
           </li>
         </ul>
         {/** mobile navigation bar :: check in mobile*/}
@@ -63,8 +63,9 @@ const Navbar = () => {
                   <a href={`#${link.id}`}>{link.title}</a>
                 </li>
               ))}
-              <li className={`text-secondary hover:text-white text-[18px] font-medium cursor-pointer`}>
-                <Link to="/blogs">Blogs</Link>
+              {/*new link for "Blogs" */}
+              <li className={`text-secondary hover:text-white text-[16px] font-medium cursor-pointer`}>
+                <Link to="/blogs" onClick={() => scroll(0, 0)}>Blogs</Link>
               </li>
             </ul>
           </div>
