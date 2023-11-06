@@ -30,12 +30,6 @@ const SinglePage = ({ postId }) => {
 
     })
 
-    useEffect(() => {
-        if (!loading) {
-            const cleanContent = DOMPurify.sanitize(data.post.content)
-            console.log(cleanContent)
-        }
-    }, [data])
 
 
     return (
@@ -53,7 +47,7 @@ const SinglePage = ({ postId }) => {
             <div className={styles.content}>
                 <div className={styles.post}>
                     <div
-                        // className={styles.description}
+                        className={styles.description}
                         dangerouslySetInnerHTML={{ __html: data?.post.content }}
                     />
                 </div>

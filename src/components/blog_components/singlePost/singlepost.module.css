@@ -1,5 +1,6 @@
 .container {
     background-color: rgb(27, 26, 26);
+    padding: 30px;
 }
 
 .infoContainer {
@@ -16,6 +17,24 @@
 .title {
     font-size: 64px;
     margin-bottom: 50px;
+}
+
+
+
+.description pre {
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 20px 0px
+}
+
+.description p {
+    margin: 20px 0px;
+}
+
+.description h3 {
+    font-size: 25px;
+    font-weight: 400;
 }
 
 
