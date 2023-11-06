@@ -5,8 +5,11 @@ import {
   Hero, Navbar, Works, Tech, StarsCanvas, Blogs
 } from "./components"
 
+import CategoryPage from "./components/blog_components/categoryPage/CategoryPage"
+
 import { ApolloProvider } from "@apollo/client"
 import client from "./apollo/apolloConfig"
+import PostPage from "./components/blog_components/postPage/PostPage"
 
 
 const Home = () => {
@@ -42,6 +45,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs/:slug" element={<CategoryPage />} />
+          <Route path="/posts" element={<PostPage />} />
         </Routes>
       </ApolloProvider>
     </BrowserRouter>
