@@ -16,12 +16,12 @@ const Card = ({ id, item }) => {
                     </span>
                     <span className={styles.category}>{item.catSlug}</span>
                 </div>
-                <Link to={`/posts/${item.slug}`}>
+                <Link to={`/posts?id=${id}`} onClick={() => scroll(0, 0)}>
                     <h1>{item.title}</h1>
                 </Link>
                 {/* <p className={styles.desc}>{item.desc.substring(0, 60)}</p> */}
                 {/* <div className={styles.desc} dangerouslySetInnerHTML={{ __html: item?.desc.substring(0, 60) }} /> */}
-                <Link to={`/posts/${item.slug}`} className={styles.link}>
+                <Link to={`/posts?id=${id}`} onClick={() => scroll(0, 0)} className={styles.link}>
                     Read More
                 </Link>
             </div>
