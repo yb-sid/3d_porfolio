@@ -42,6 +42,7 @@ import postgresql from "./tech/postgresql.png"
 import python from "./tech/python.png"
 import spark from "./tech/spark.png"
 import springBoot from "./tech/spring_boot.png"
+import xai from "./company/xai.png"
 
 export {
   logo,
@@ -81,5 +82,6 @@ export {
   postgresql,
   python,
   spark,
-  springBoot
+  springBoot,
+  xai
 };

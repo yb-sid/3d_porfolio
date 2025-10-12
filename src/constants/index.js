@@ -24,7 +24,8 @@ import {
     postgresql,
     python,
     spark,
-    springBoot
+    springBoot,
+    xai,
 } from "../assets";
 
 export const navLinks = [
@@ -121,6 +122,9 @@ const technologies = [
     }
 ];
 
+
+
+
 const experiences = [
     {
         title: "Software Engineer",
@@ -169,7 +173,21 @@ const experiences = [
         company_name: "JnJ",
         icon: jnj,
         iconBg: "#FFFFFF",
-        date: "Nov 2022 - Present",
+        date: "Nov 2022 - Nov 2024",
+        points: [
+            "Played a pivotal role in the migration of a legacy Java Compute-Engine to Azure Databricks, ensuring a seamless transition to a modern data processing platform.",
+
+            "Collaborated closely on the development of an automated pipeline that transforms XML data into Scala code, enabling the generation and execution of Spark Jobs within Databricks.",
+
+            "Utilizing the power of the OpenAI API, Databricks, and Python to craft solutions for Canadian HealthCare.",
+        ],
+    },
+     {
+        title: "SWE Specialist",
+        company_name: "xAI",
+        icon: xai,
+        iconBg: "#FFFFFF",
+        date: "Nov 2024 - Present",
         points: [
             "Played a pivotal role in the migration of a legacy Java Compute-Engine to Azure Databricks, ensuring a seamless transition to a modern data processing platform.",
 
